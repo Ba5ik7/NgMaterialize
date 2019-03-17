@@ -1,3 +1,15 @@
-<p>
-  buttons works!
-</p>
+
+<a *ngIf="buttonType == 'link'" 
+  [ngClass]=classes>
+  Button
+  <i class="material-icons right">send</i>
+</a>
+
+
+<button *ngIf="buttonType == 'submit'" 
+  [ngClass]=classes 
+  type="submit" 
+  name="action">
+  Submit
+  <i class="material-icons right">send</i>
+</button>
