@@ -9,16 +9,13 @@ export class ButtonsComponent implements OnInit {
 
   @Input() buttonType: string = 'submit';
   @Input() classes: string = 'btn';
-  @Input() text: string = 'Button';
+  @Input() text: string;
   @Input() icon: string = 'none';
   @Input() iconClasses: string = 'right';
 
   @Output() clicked = new EventEmitter<object>();
 
   constructor() { }
-
-  ngOnInit() {
-  }
 
   private onClick(event) {
     console.log('Button Clicked', event);
