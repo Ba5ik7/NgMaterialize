@@ -1,7 +1,7 @@
 
 <a *ngIf="buttonType == 'link'" 
   [ngClass]=classes>
-  Button
+  {{text}}
   <i class="material-icons right">send</i>
 </a>
 
@@ -10,6 +10,6 @@
   [ngClass]=classes 
   type="submit" 
   name="action">
-  Submit
+  {{text}}
   <i class="material-icons right">send</i>
 </button>
