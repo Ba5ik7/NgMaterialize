@@ -3,7 +3,7 @@
   [ngClass]=classes
   (click)=onClick($event)>
   {{text}}
-  <i class="material-icons right">send</i>
+  <i *ngIf="icon != 'none'" class="material-icons" [ngClass]=iconClasses>{{icon}}</i>
 </a>
 
 
@@ -13,5 +13,5 @@
   name="action"
   (click)=onClick($event)>
   {{text}}
-  <i class="material-icons right">send</i>
+  <i *ngIf="icon != 'none'" class="material-icons" [ngClass]=iconClasses>{{icon}}</i>
 </button>

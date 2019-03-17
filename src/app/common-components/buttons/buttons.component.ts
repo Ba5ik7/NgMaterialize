@@ -10,6 +10,8 @@ export class ButtonsComponent implements OnInit {
   @Input() buttonType: string = 'submit';
   @Input() classes: string = 'btn';
   @Input() text: string = 'Button';
+  @Input() icon: string = 'none';
+  @Input() iconClasses: string = 'right';
 
   @Output() clicked = new EventEmitter<object>();
 
