@@ -22,4 +22,10 @@ describe('ButtonsComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('Have default buttonSubmit and can change', () => {
+    expect(component.buttonSubmit).toBe(false, 'Link by default');
+    component.buttonSubmit = true;
+    expect(component.buttonSubmit).toBe(true, 'Has changed to Submit');
+  })
 });

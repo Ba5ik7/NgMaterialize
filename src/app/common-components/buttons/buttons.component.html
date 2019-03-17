@@ -1,5 +1,5 @@
 
-<a *ngIf="buttonType == 'link'" 
+<a *ngIf="!buttonSubmit" 
   [ngClass]=classes
   (click)=onClick($event)>
   {{text}}
@@ -7,7 +7,7 @@
 </a>
 
 
-<button *ngIf="buttonType == 'submit'" 
+<button *ngIf="buttonSubmit" 
   [ngClass]=classes 
   type="submit" 
   name="action"
