@@ -7,13 +7,17 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ButtonsComponent implements OnInit {
 
-  @Input() buttonType: string = 'link';
+  @Input() buttonType: string = 'submit';
   @Input() classes: string = 'btn';
   @Input() text: string = 'Button';
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onClick(event) {
+    console.log('Button Clicked', event);
   }
 
 }

@@ -1,6 +1,7 @@
 
 <a *ngIf="buttonType == 'link'" 
-  [ngClass]=classes>
+  [ngClass]=classes
+  (click)=onClick($event)>
   {{text}}
   <i class="material-icons right">send</i>
 </a>
@@ -9,7 +10,8 @@
 <button *ngIf="buttonType == 'submit'" 
   [ngClass]=classes 
   type="submit" 
-  name="action">
+  name="action"
+  (click)=onClick($event)>
   {{text}}
   <i class="material-icons right">send</i>
 </button>
