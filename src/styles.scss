@@ -1,1 +1,24 @@
-/* You can add global styles to this file, and also import other style files */
+@charset "UTF-8";
+
+// Color
+@import "scss/color-variables";
+@import "scss/color-classes";
+
+// Variables
+@import "scss/variables";
+
+// Reset
+@import "scss/normalize";
+
+// Reset Globals and Helpers
+@import "scss/global";
+
+// "The Grid. A digital frontier. I tried to picture clusters of information as 
+// they moved through the computer. What did they look like? Ships, motorcycles? Were 
+// the circuits like freeways? I kept dreaming of a world I thought I'd never see. 
+// And then, one day I got in..."
+@import "scss/grid";
+
+// Fonts and stuff don't forget to import them from google!
+@import "scss/icons-material-design";
+@import "scss/typography";
