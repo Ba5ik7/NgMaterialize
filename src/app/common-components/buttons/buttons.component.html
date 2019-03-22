@@ -1,17 +1,19 @@
 
-<a *ngIf="!buttonSubmit" 
-  [ngClass]=classes
+<a *ngIf="!buttonSubmit"
+  [id]=buttonId
+  [ngClass]=buttonClasses
   (click)=onClick($event)>
-  {{text}}
+  {{buttonText}}
   <i *ngIf="icon != 'none'" class="material-icons" [ngClass]=iconClasses>{{icon}}</i>
 </a>
 
 
-<button *ngIf="buttonSubmit" 
-  [ngClass]=classes 
-  type="submit" 
+<button *ngIf="buttonSubmit"
+  [id]=buttonId
+  [ngClass]=buttonClasses
+  type="submit"
   name="action"
   (click)=onClick($event)>
-  {{text}}
+  {{buttonText}}
   <i *ngIf="icon != 'none'" class="material-icons" [ngClass]=iconClasses>{{icon}}</i>
 </button>
