@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-input-fields',
+  selector: 'md-input-fields',
   templateUrl: './input-fields.component.html',
-  styleUrls: ['./input-fields.component.sass']
+  styleUrls: ['./input-fields.component.scss']
 })
 export class InputFieldsComponent implements OnInit {
 

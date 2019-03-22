@@ -9,7 +9,8 @@ import { InputFieldsComponent } from './input-fields/input-fields.component';
     CommonModule
   ],
   exports: [
-    ButtonsComponent
+    ButtonsComponent,
+    InputFieldsComponent
   ]
 })
 export class CommonComponentsModule { }
