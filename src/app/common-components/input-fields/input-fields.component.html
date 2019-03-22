@@ -8,5 +8,6 @@
       (focus)=onFocus($event)
       (blur)=onBlur($event)>
     <label [for]=inputId [ngClass]="{'active': isActive, labelClasses: true}"  >{{labelText}}</label>
+    <span class="helper-text" [ngClass]=helperTextClasses>{{helperText}}</span>
   </div>
 </div>

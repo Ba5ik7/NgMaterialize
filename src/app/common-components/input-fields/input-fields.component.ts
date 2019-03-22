@@ -7,6 +7,9 @@ import { Component, OnInit, EventEmitter, Input, Output } from '@angular/core';
 })
 export class InputFieldsComponent implements OnInit {
 
+  @Input() helperText: string;
+  @Input() helperTextClasses: string;
+
   @Input() labelClasses: string;
   @Input() labelText: string = 'Label Text Default';
 
@@ -28,7 +31,7 @@ export class InputFieldsComponent implements OnInit {
     this.isActive = this.inputModel !== '';
   }
 
-  private onFocus() {
+  private onFocus(event) {
     this.isActive = true;
   }
 
