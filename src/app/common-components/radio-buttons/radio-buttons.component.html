@@ -1,3 +1,10 @@
-<p>
-  radio-buttons works!
-</p>
+<span [ngClass]=wrapperClasses *ngFor="let item of radios">
+  <label>
+    <input
+    type="radio"
+    [id]=item.id
+    [ngClass]=ratioClasses
+    [name]=ratioGroup/>
+    <span>{{item.text}}</span>
+  </label>
+</span>
