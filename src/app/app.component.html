@@ -1,17 +1,23 @@
 <router-outlet></router-outlet>
 <div class="container">
     <div class="row">
-        <div class="col s6">
-            <md-input-fields
+        <md-input-fields
+            helperText="Hello"
+            wrapperClasses='col s12 m6 l8'
             inputId="id_input_test"></md-input-fields>  
+        <md-input-fields
+            helperText="Hello"
+            wrapperClasses='col s12 m6 l4'
+            inputId="id_input_test_2"></md-input-fields>
+        <div class="col s12">
+            <md-buttons
+                buttonId='id_button_test'
+                buttonType='link'
+                buttonClasses="btn"
+                buttonText="Hello cloud"
+                icon="cloud"
+                iconClasses="left"
+                (clicked)=formClick($event)></md-buttons>
         </div>
-        <md-buttons
-            buttonId='id_button_test'
-            buttonType='link'
-            buttonClasses="btn"
-            buttonText="Hello cloud"
-            icon="cloud"
-            iconClasses="left"
-            (clicked)=formClick($event)></md-buttons>
     </div>
 </div>
