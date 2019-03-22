@@ -14,13 +14,22 @@ export class InputFieldsComponent implements OnInit {
   @Input() inputType: string = 'text';
   @Input() inputClasses: string = 'validate';
   
-  @Input() wrapperClasses: string = ' col s12';
+  @Input() wrapperClasses: string = 'col s12';
 
-  inputModel: any;
+  inputModel: any = '';
+  isActive: boolean;
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  private onBlur(event) {
+    this.isActive = this.inputModel !== '';
+  }
+
+  private onFocus() {
+    this.isActive = true;
   }
 
 }

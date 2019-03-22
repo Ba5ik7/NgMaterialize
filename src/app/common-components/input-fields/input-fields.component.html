@@ -4,7 +4,9 @@
       [id]=inputId
       [ngClass]=inputClasses
       [type]=inputType
-      [(ngModel)]="inputModel">
-    <label [for]=inputId [ngClass]=labelClasses >{{labelText}}</label>
+      [(ngModel)]="inputModel"
+      (focus)=onFocus($event)
+      (blur)=onBlur($event)>
+    <label [for]=inputId [ngClass]="{'active': isActive, labelClasses: true}"  >{{labelText}}</label>
   </div>
 </div>
