@@ -27,7 +27,6 @@ export class InputFieldsComponent {
 
   private onBlur(event) {
     console.log(this.control);
-    
     this.isActive = this.control.value !== '';
   }
 
