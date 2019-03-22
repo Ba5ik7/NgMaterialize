@@ -1,10 +1,10 @@
 <div class="row">
   <div class="input-field" [ngClass]=wrapperClasses>
-    <input 
+    <input  
       [id]=inputId
       [ngClass]=inputClasses
       [type]=inputType
-      [(ngModel)]="inputModel"
+      [formControl]=control
       (focus)=onFocus($event)
       (blur)=onBlur($event)>
     <label [for]=inputId [ngClass]="{'active': isActive, labelClasses: true}"  >{{labelText}}</label>

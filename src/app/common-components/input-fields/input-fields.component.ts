@@ -1,11 +1,14 @@
-import { Component, OnInit, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'md-input-fields',
   templateUrl: './input-fields.component.html',
   styleUrls: ['./input-fields.component.scss']
 })
-export class InputFieldsComponent implements OnInit {
+export class InputFieldsComponent {
+
+  @Input() control: FormControl = new FormControl('');
 
   @Input() helperText: string;
   @Input() helperTextClasses: string;
@@ -22,17 +25,15 @@ export class InputFieldsComponent implements OnInit {
   inputModel: any = '';
   isActive: boolean;
 
-  constructor() { }
-
-  ngOnInit() {
-  }
-
   private onBlur(event) {
-    this.isActive = this.inputModel !== '';
+    console.log(this.control);
+    
+    this.isActive = this.control.value !== '';
   }
 
   private onFocus(event) {
     this.isActive = true;
   }
 
+  constructor() { }
 }
