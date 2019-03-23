@@ -1,4 +1,5 @@
 import { Component, Renderer2 } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'md-selects',
@@ -9,6 +10,21 @@ export class SelectsComponent {
 
   open: boolean = false;
   listenerFn: Function;
+
+  defaultOptionText: string = 'Select A Value';
+  labelText: string = 'Materialize Select';
+
+  options = [
+    {text: 'Arizona', id: 'AZ'},
+    {text: 'California', id: 'CA'},
+    {text: 'Colorado', id: 'CO'},
+    {text: 'New York', id: 'NY'},
+    {text: 'Pennsylvania', id: 'PA'},
+  ];
+
+  form: FormGroup = new FormGroup({
+    test: new FormControl(this.options[3]),
+  });
 
   private onClick(event) {
     // If select dropdown is not open don't add a new/another document event listener
