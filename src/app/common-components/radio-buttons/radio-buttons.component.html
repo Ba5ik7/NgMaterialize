@@ -1,0 +1,14 @@
+<span [formGroup]=ratioGroup>
+  <span [ngClass]=wrapperClasses *ngFor="let item of radios">
+    <label>
+      <input
+      type="radio"
+      [id]=item.id
+      [ngClass]=ratioClasses
+      [value]=item.value
+      [formControlName]=formControlName
+      (change)=onChange($event)/>
+      <span>{{item.text}}</span>
+    </label>
+  </span>
+</span>
