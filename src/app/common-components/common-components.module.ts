@@ -4,15 +4,17 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ButtonsComponent } from './buttons/buttons.component';
 import { InputFieldsComponent } from './input-fields/input-fields.component';
 import { RadioButtonsComponent } from './radio-buttons/radio-buttons.component';
+import { CheckboxesComponent } from './checkboxes/checkboxes.component';
 
 @NgModule({
-  declarations: [ButtonsComponent, InputFieldsComponent, RadioButtonsComponent],
+  declarations: [ButtonsComponent, InputFieldsComponent, RadioButtonsComponent, CheckboxesComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule,
   ],
   exports: [
     ButtonsComponent,
+    CheckboxesComponent,
     InputFieldsComponent,
     RadioButtonsComponent
   ]
