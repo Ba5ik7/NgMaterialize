@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'md-checkboxes',
@@ -7,6 +7,11 @@ import { Component } from '@angular/core';
 })
 export class CheckboxesComponent {
 
-  constructor() { }
+  @Input() checkboxes: Array<object> = [{ id: 'checkboxes_test_1', text: 'Test One' }, { classes: 'filled-in', id: 'checkboxes_test_2', text: 'Test Two' }];
 
+  @Input() labelClasses: string = 'col s2';
+
+  @Input() wrapperClasses: string = 'row';
+
+  constructor() { }
 }
