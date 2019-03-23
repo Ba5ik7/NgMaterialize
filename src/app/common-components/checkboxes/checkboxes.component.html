@@ -1,10 +1,12 @@
-<div [ngClass]=wrapperClasses>
+<div [ngClass]=wrapperClasses [formGroup]=checkboxesGroup>
   <p [ngClass]=labelClasses *ngFor="let item of checkboxes">
     <label>
       <input 
       type="checkbox"
       [id]=item.id
-      [ngClass]=item.classes/>
+      [ngClass]=item.classes
+      [formControlName]=formControlName
+      (click)=onClick($event)/>
       <span>{{item.text}}</span>
     </label>
   </p>
