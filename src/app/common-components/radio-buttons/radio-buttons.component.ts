@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'md-radio-buttons',
@@ -7,11 +8,21 @@ import { Component, Input } from '@angular/core';
 })
 export class RadioButtonsComponent {
 
-  @Input() radios: Array<object> = [{ id: 'test_1', text: 'Test One' }, { id: 'test_2', text: 'Test Two' }];
+  @Input() formControlName: string = 'test';
+  @Input() control: FormControl = new FormControl();
+  @Input() ratioGroup: FormGroup = new FormGroup({ test: this.control });
+
+  @Input() radios: Array<object> = [{ value: 'test_1', id: 'test_1', text: 'Test One' }, { value: 'test_2', id: 'test_2', text: 'Test Two' }];
   @Input() ratioClasses: string;
-  @Input() ratioGroup: string = 'test_group';
+ 
   
   @Input() wrapperClasses: string = 'block';
+
+  private onChange(event) {
+    console.log(event);
+    console.log(this.control);
+    console.log(this.ratioGroup);
+  }
 
   constructor() { }
 }
