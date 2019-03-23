@@ -1,4 +1,4 @@
-<div [ngClass]=wrapperClasses [formGroup]=checkboxesGroup>
+<span [ngClass]=wrapperClasses [formGroup]=checkboxesGroup>
   <p [ngClass]=labelClasses *ngFor="let item of checkboxes">
     <label>
       <input 
@@ -10,4 +10,4 @@
       <span>{{item.text}}</span>
     </label>
   </p>
-</div>
+</span>
