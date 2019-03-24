@@ -7,7 +7,7 @@
         readonly="true" 
         [value]=form.value.test.text
         (click)=onClick($event)>
-      <ul [ngClass]="{ 'dropdown-content': true, 'open': open }"  >
+      <ul [ngClass]="{ 'select-dropdown': true, 'dropdown-content': true, 'open': open }"  >
         <li class="disabled" ><span>{{defaultOption.text}}</span></li>
         <li *ngFor="let item of options"
         [id]=item.id

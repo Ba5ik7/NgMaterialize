@@ -12,7 +12,7 @@ export class SelectsComponent implements OnInit {
   listenerFn: Function;
 
   defaultOption: object = { text: 'Select A Value' };
-  preSelectOption: object = {text: 'Pennsylvania', id: 'PA'};
+  preSelectOption: object;
   labelText: string = 'Materialize Select';
 
   options = [
