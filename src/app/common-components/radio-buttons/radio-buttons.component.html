@@ -1,5 +1,5 @@
-<span [formGroup]=ratioGroup>
-  <span [ngClass]=wrapperClasses *ngFor="let item of radios">
+<span [formGroup]=ratioGroup class="row">
+  <p [ngClass]=wrapperClasses *ngFor="let item of radios">
     <label>
       <input
       type="radio"
@@ -10,5 +10,5 @@
       (change)=onChange($event)/>
       <span>{{item.text}}</span>
     </label>
-  </span>
+  </p>
 </span>

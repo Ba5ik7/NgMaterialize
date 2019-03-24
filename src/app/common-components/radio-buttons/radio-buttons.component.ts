@@ -15,7 +15,7 @@ export class RadioButtonsComponent {
   @Input() radios: Array<object> = [{ value: 'test_1', id: 'test_1', text: 'Test One' }, { value: 'test_2', id: 'test_2', text: 'Test Two' }];
   @Input() ratioClasses: string;
  
-  @Input() wrapperClasses: string = 'col s3';
+  @Input() wrapperClasses: string = 'col s12 m3';
 
   private onChange(event) {
     console.log(event);
