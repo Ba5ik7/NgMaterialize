@@ -1,14 +1,14 @@
 <div class="row">
   <div class="input-field col s12 m6">
     <div class="select-wrapper" [formGroup]="form">
-      <input 
+      <input
         class="select-dropdown dropdown-trigger" 
         type="text" 
         readonly="true" 
-        value="Choose your option" 
+        [value]=form.value.test.text
         (click)=onClick($event)>
       <ul [ngClass]="{ 'dropdown-content': true, 'open': open }"  >
-        <li class="disabled selected" ><span>{{defaultOptionText}}</span></li>
+        <li class="disabled" ><span>{{defaultOptionText}}</span></li>
         <li *ngFor="let item of options"
         [id]=item.id
         [attr.data-id]=item.id
@@ -18,7 +18,7 @@
       </ul>
       <svg class="caret" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg>
       <select formControlName="test">
-        <option value="" disabled="" selected="">{{defaultOptionText}}</option>
+        <option>{{defaultOptionText}}</option>
         <option *ngFor="let item of options" [id]=item.id [ngValue]=item>{{item.text}}</option>
       </select>
     </div>
