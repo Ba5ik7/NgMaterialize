@@ -1,4 +1,4 @@
-import { Component, Renderer2 } from '@angular/core';
+import { Component, Renderer2, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
@@ -6,12 +6,13 @@ import { FormControl, FormGroup } from '@angular/forms';
   templateUrl: './selects.component.html',
   styleUrls: ['./selects.component.scss']
 })
-export class SelectsComponent {
+export class SelectsComponent implements OnInit {
 
   open: boolean = false;
   listenerFn: Function;
 
-  defaultOptionText: string = 'Select A Value';
+  defaultOption: object = { text: 'Select A Value' };
+  preSelectOption: object = {text: 'Pennsylvania', id: 'PA'};
   labelText: string = 'Materialize Select';
 
   options = [
@@ -23,9 +24,15 @@ export class SelectsComponent {
   ];
 
   form: FormGroup = new FormGroup({
-    test: new FormControl(this.options[3]),
+    test: new FormControl(this.defaultOption),
   });
 
+  ngOnInit() {
+    if (this.preSelectOption !== undefined) {
+      const test = Object.assign({}, this.preSelectOption);
+      this.form.setValue({ test }); 
+    }
+  }
 
   private optionClick(event) {
     // Get rid of the DOMStringMap shallow copying and set the data to the formControl

@@ -8,7 +8,7 @@
         [value]=form.value.test.text
         (click)=onClick($event)>
       <ul [ngClass]="{ 'dropdown-content': true, 'open': open }"  >
-        <li class="disabled" ><span>{{defaultOptionText}}</span></li>
+        <li class="disabled" ><span>{{defaultOption.text}}</span></li>
         <li *ngFor="let item of options"
         [id]=item.id
         [attr.data-id]=item.id
@@ -18,7 +18,7 @@
       </ul>
       <svg class="caret" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg>
       <select formControlName="test">
-        <option>{{defaultOptionText}}</option>
+        <option>{{defaultOption.text}}</option>
         <option *ngFor="let item of options" [id]=item.id [ngValue]=item>{{item.text}}</option>
       </select>
     </div>
