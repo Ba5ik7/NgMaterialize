@@ -26,6 +26,15 @@ export class SelectsComponent {
     test: new FormControl(this.options[3]),
   });
 
+
+  private optionClick(event) {
+    console.log('optionClick', event);
+    // Close the dropdown
+    this.open = false;
+    // Remove the event document listener
+    this.listenerFn();
+  }
+
   private onClick(event) {
     // If select dropdown is not open don't add a new/another document event listener
     if (this.open !== true) {

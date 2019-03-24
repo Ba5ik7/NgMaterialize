@@ -257,7 +257,12 @@ body.keyboard-focused {
       height: 1px;
     }
 
+    & * {
+      pointer-events: none;
+    }
+
     & > a, & > span {
+      
       font-size: 16px;
       color: $dropdown-color;
       display: block;
