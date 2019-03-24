@@ -47,7 +47,7 @@ export class SelectsComponent implements OnInit {
   private openDropdown(event) {
     if (this.open !== true) {
       const selectedOption = event.target.nextElementSibling.querySelector(`li[data-id=${this.form.value.test.id}]`);
-      // Race con Fuck me!!!!
+      // Race con Fuck me!!!! @TODO open support task
       setTimeout(() => selectedOption.focus(), 100);
 
       this.listenerFn = this.renderer.listen('document', 'mousedown', (event) => this.documentClicked(event));
