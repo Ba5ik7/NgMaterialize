@@ -1,4 +1,4 @@
-import { Component, Renderer2, OnInit } from '@angular/core';
+import { Component, Renderer2, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
@@ -7,14 +7,17 @@ import { FormControl, FormGroup } from '@angular/forms';
   styleUrls: ['./selects.component.scss']
 })
 export class SelectsComponent implements OnInit {
+  
+  @ViewChild('someVar') el:ElementRef;
 
   open: boolean = false;
   listenerFn: Function;
 
-  defaultOption: object = { text: 'Select A Value' };
-  preSelectOption: object;
   labelText: string = 'Materialize Select';
 
+  defaultOption: object = { text: 'Select A Value', id: 'default' };
+  preSelectOption: object= {text: 'New York', id: 'NY'};
+  
   options = [
     {text: 'Arizona', id: 'AZ', test: 'test'},
     {text: 'California', id: 'CA'},
@@ -34,19 +37,19 @@ export class SelectsComponent implements OnInit {
     }
   }
 
-  private optionClick(event) {
-    // Get rid of the DOMStringMap shallow copying and set the data to the formControl
+  private optionSelected(event) {
     const test = Object.assign({}, event.target.dataset);
     this.form.setValue({ test });
-
-    // Remove the event document listener
-    this.listenerFn();
-    this.open = false;
+    this.closeDropdown();
+    this.el.nativeElement.focus();
   }
 
-  private onClick(event) {
-    // If select dropdown is not open don't add a new/another document event listener
+  private openDropdown(event) {
     if (this.open !== true) {
+      const selectedOption = event.target.nextElementSibling.querySelector(`li[data-id=${this.form.value.test.id}]`);
+      // Race con Fuck me!!!!
+      setTimeout(() => selectedOption.focus(), 100);
+
       this.listenerFn = this.renderer.listen('document', 'mousedown', (event) => this.documentClicked(event));
       this.open = true;
     }
@@ -55,9 +58,22 @@ export class SelectsComponent implements OnInit {
   private documentClicked(event) {
     const hasDropdownEl = event.target.closest('.dropdown-content');
     if (hasDropdownEl == null) {
-      this.open = false;
-      // Remove the event document listener
-      this.listenerFn();
+      this.closeDropdown();
+    }
+  }
+
+  private closeDropdown() {
+    this.open = false;
+    this.listenerFn();
+  }
+
+  private arrowUp(event) {
+    event.target.previousElementSibling.focus();
+  }
+
+  private arrowDown(event) {
+    if(event.target.nextElementSibling != null) {
+      event.target.nextElementSibling.focus();
     }
   }
 

@@ -1,20 +1,31 @@
 <div class="row">
   <div class="input-field col s12 m6">
     <div class="select-wrapper" [formGroup]="form">
-      <input
+      <input #someVar
         class="select-dropdown dropdown-trigger" 
         type="text" 
-        readonly="true" 
+        readonly="true"
         [value]=form.value.test.text
-        (click)=onClick($event)>
-      <ul [ngClass]="{ 'select-dropdown': true, 'dropdown-content': true, 'open': open }"  >
-        <li class="disabled" ><span>{{defaultOption.text}}</span></li>
+        (keyup.enter)=openDropdown($event)
+        (keyup.arrowdown)=openDropdown($event)
+        (click)=openDropdown($event)>
+      <ul tabindex="0" [ngClass]="{ 'select-dropdown': true, 'dropdown-content': true, 'open': open }">
+        <li
+          tabindex="0" 
+          class="disabled"
+          [attr.data-id]=defaultOption.id
+          (keyup.arrowdown)=arrowDown($event)><span>{{defaultOption.text}}</span></li>
         <li *ngFor="let item of options"
-        [id]=item.id
-        [attr.data-id]=item.id
-        [attr.data-text]=item.text
-        [attr.data-test]=item.test
-        (click)=optionClick($event)><span>{{item.text}}</span></li>
+          tabindex="0"
+          [id]=item.id
+          [attr.data-id]=item.id
+          [attr.data-text]=item.text
+          [attr.data-test]=item.test
+          (keyup.arrowup)=arrowUp($event)
+          (keyup.arrowdown)=arrowDown($event)
+          (keydown.Tab)=closeDropdown($event);
+          (keyup.enter)=optionSelected($event)
+          (click)=optionSelected($event)><span>{{item.text}}</span></li>
       </ul>
       <svg class="caret" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg>
       <select formControlName="test">
